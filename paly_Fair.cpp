@@ -5,14 +5,14 @@ using namespace std;
 
 char matrix[5][5];
 
-// Generate 5x5 key matrix
+
 void generateMatrix(string key) {
     bool used[26] = {false};
     used['J' - 'A'] = true;   // Treat J as I
 
     int row = 0, col = 0;
 
-    // Insert key letters
+  
     for (char ch : key) {
         if (isalpha(ch)) {
             ch = toupper(ch);
@@ -30,7 +30,7 @@ void generateMatrix(string key) {
         }
     }
 
-    // Fill remaining letters
+  
     for (char ch = 'A'; ch <= 'Z'; ch++) {
         if (!used[ch - 'A']) {
             matrix[row][col++] = ch;
@@ -44,8 +44,7 @@ void generateMatrix(string key) {
     }
 }
 
-// Print key matrix
-void printMatrix() {
+
     cout << "\nKey Matrix:\n";
     for (int i = 0; i < 5; i++) {
         for (int j = 0; j < 5; j++)
@@ -54,7 +53,7 @@ void printMatrix() {
     }
 }
 
-// Find position of character in matrix
+
 void findPosition(char ch, int &row, int &col) {
     if (ch == 'J') ch = 'I';
 
@@ -67,7 +66,7 @@ void findPosition(char ch, int &row, int &col) {
             }
 }
 
-// Prepare plaintext
+
 string prepareText(string text) {
     string result = "";
 
@@ -80,7 +79,7 @@ string prepareText(string text) {
         }
     }
 
-    // Insert X between duplicate letters
+
     for (int i = 0; i < result.length(); i += 2) {
         if (i + 1 < result.length() && result[i] == result[i + 1])
             result.insert(i + 1, 1, 'X');
@@ -93,7 +92,7 @@ string prepareText(string text) {
     return result;
 }
 
-// Encrypt function
+
 string encrypt(string text) {
     text = prepareText(text);
     string cipher = "";
@@ -120,7 +119,7 @@ string encrypt(string text) {
     return cipher;
 }
 
-// Decrypt function
+
 string decrypt(string text) {
     string plain = "";
 
@@ -166,3 +165,4 @@ int main() {
 
     return 0;
 }
+
