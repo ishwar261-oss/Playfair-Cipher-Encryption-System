@@ -153,7 +153,7 @@ int main() {
 
     generateMatrix(key);
     printMatrix();
-
+    // input plain text
     cout << "\nEnter Plaintext: ";
     getline(cin, text);
 
