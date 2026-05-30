@@ -70,7 +70,7 @@ void findPosition(char ch, int &row, int &col) {
 string prepareText(string text) {
     string result = "";
 
-    // Remove spaces and convert to uppercase
+  
     for (char ch : text) {
         if (isalpha(ch)) {
             ch = toupper(ch);
@@ -85,7 +85,7 @@ string prepareText(string text) {
             result.insert(i + 1, 1, 'X');
     }
 
-    // If odd length, add X
+    
     if (result.length() % 2 != 0)
         result += 'X';
 
